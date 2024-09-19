@@ -56,5 +56,16 @@ MERN based kanban board with complete authentication. Backend-app in root folder
 **_The alternative approach is to build the react app in dist folder, and then manually import the contents of dist folder in the manually created public folder at the root and serving static files from there._**
 
 6. For running the app, cmd would be node api/index.js. This has to be in api folder for vercel deployment issue. Vercel only recognizes server when server is in api folder at the root.
+7. Add vercel.json file in the root directory.
+   ```js
+   {
+      "routes": [
+         {
+            "src": "/[^.]+",
+            "dest": "/"
+         }
+      ]
+   }
+   ```
 
 Hopefully, following these steps would successfully deploy a working MERN-App on vercel.
