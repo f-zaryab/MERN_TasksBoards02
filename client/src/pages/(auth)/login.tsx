@@ -75,7 +75,7 @@ const LoginPage = () => {
         <Text sx={styles.footerText}>
           Don't have an account yet?{" "}
           <span>
-            <Link to="/">Create new account</Link>
+            <Link to="/">Create new account 1</Link>
           </span>
         </Text>
       </form>
