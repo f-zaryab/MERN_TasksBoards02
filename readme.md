@@ -9,7 +9,7 @@ MERN based kanban board with complete authentication. Backend-app in root folder
 - [React-Vite](https://v3.vitejs.dev/guide/)
 - [React-Router-Dom-6](https://reactrouter.com/en/main/start/tutorial)
 
-#### How to make app deployment ready
+### How to make app deployment ready
 
 1. server-file must be ready and can be tested via a test api route
 2. Frontend-app must be in client folder and navigating into client folder may start the app via suitable command. It must be able to run in dev mode and it can be built i.e. dist folder must be created
@@ -61,6 +61,10 @@ MERN based kanban board with complete authentication. Backend-app in root folder
    {
       "routes": [
          {
+            "src": "/api/(.*)",
+            "dest": "/api/index.js"
+         },
+         {
             "src": "/[^.]+",
             "dest": "/"
          }
@@ -69,3 +73,9 @@ MERN based kanban board with complete authentication. Backend-app in root folder
    ```
 
 Hopefully, following these steps would successfully deploy a working MERN-App on vercel.
+
+### Debugging Issues
+
+- [Vercel.json issue at deployment](https://stackoverflow.com/questions/76835419/why-when-i-deploy-in-vercel-mern-app-shows-me-error-404): For vercel deployment, vercel.json is crucial for defining frontend paths and backend-express paths.
+- [React-Hook-Form](https://www.freecodecamp.org/news/how-to-build-forms-in-react/). More links: [Link1](https://blog.logrocket.com/react-hook-form-complete-guide/), [Link2](https://dev.to/franciscomendes10866/react-form-validation-with-react-hook-form-and-yup-4a98)
+
