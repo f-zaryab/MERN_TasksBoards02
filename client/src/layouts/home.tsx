@@ -1,13 +1,15 @@
+import { Container } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
+import styles from './styles'
 
 const HomeLayout = () => {
   return (
-    <div>
-      <nav>Home navbar</nav>
+    <Container sx={styles.mainHomeLayout} id='home-layout'>
+      {/* <nav>Home navbar</nav> */}
       <div>
         <Outlet />
       </div>
-    </div>
+    </Container>
   );
 };
 

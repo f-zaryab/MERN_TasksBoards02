@@ -8,6 +8,11 @@ import HomeLayout from "./layouts/home";
 import ErrorPage from "./pages/error";
 import "./App.css";
 
+// Test-Route for checking CORS errors
+fetch("/api/v1/test01")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -52,12 +57,12 @@ function App() {
 export default App;
 
 /*
- <Routes>
-        <Route path="/" element={<HomePage />}>
-          <Route index element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Route>
-      </Routes>
+  <Routes>
+    <Route path="/" element={<HomePage />}>
+      <Route index element={<RegisterPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="*" element={<ErrorPage />} />
+    </Route>
+  </Routes>
 */

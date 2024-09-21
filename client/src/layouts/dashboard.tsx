@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import styles from './styles';
+import { Box } from "@chakra-ui/react";
 
 const DashboardLayout = () => {
   const navigate = useNavigate();
@@ -14,7 +16,7 @@ const DashboardLayout = () => {
   }, []);
 
   return isLoggedIn ? (
-    <div>
+    <Box sx={styles.dashboardLayout}>
       <nav>SharedNavbar</nav>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div>Sidebar</div>
@@ -22,7 +24,7 @@ const DashboardLayout = () => {
           <Outlet />
         </div>
       </div>
-    </div>
+    </Box>
   ) : null;
 };
 
