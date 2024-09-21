@@ -43,6 +43,7 @@ app.use("*", (req, res) => {
 });
 
 const startServer = () => {
+  // Need to add database here: Mongodb
   app.listen(port, () => {
     console.log(`Server is listening at port: ${port}`);
   });
