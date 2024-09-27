@@ -10,8 +10,12 @@ dotenv.config();
 
 const port = process.env.port || 5500;
 
+// Databse-import ------------------------------------------------------------------||
+import connectDB from "../database/db.js";
+
 // Routes-import -------------------------------------------------------------------||
 import taskRoute from "../routes/taskRoutes.js";
+import userRoute from '../routes/userRoutes.js';
 
 // Middlewares ---------------------------------------------------------------------||
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -25,11 +29,12 @@ app.get("/api/v1", (req, res) => {
 });
 
 app.get("/api/v1/test01", (req, res) => {
-  res.json({ msg: 'CORS not blocked'});
+  res.json({ msg: "CORS not blocked" });
 });
 
 // Routes-Main-API ------------------------------------------------------------------||
 app.use("/api/v1/tasks", taskRoute);
+app.use("/api/v1/user", userRoute);
 
 // Serving FE-App client/dist folder ------------------------------------------------||
 app.get("*", (req, res) => {
@@ -42,11 +47,18 @@ app.use("*", (req, res) => {
   res.status(404).json({ msg: "not found!" });
 });
 
-const startServer = () => {
-  // Need to add database here: Mongodb
-  app.listen(port, () => {
-    console.log(`Server is listening at port: ${port}`);
-  });
+const startServer = async () => {
+  try {
+    // Need to add database here: Mongodb
+    await connectDB();
+
+    // Server started herer
+    app.listen(port, () => {
+      console.log(`Server is listening at port: ${port}`);
+    });
+  } catch (error) {
+    console.log("Error-Server: ", error);
+  }
 };
 
 startServer();

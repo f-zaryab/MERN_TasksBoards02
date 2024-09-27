@@ -38,6 +38,10 @@ const RegisterPage = () => {
   const onSubmit = (data: FormData) => {
     console.log(data);
 
+    fetch("/api/v1/test01")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+
     reset();
   };
 
