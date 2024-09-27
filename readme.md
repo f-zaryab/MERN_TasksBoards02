@@ -8,6 +8,7 @@ MERN based kanban board with complete authentication. Backend-app in root folder
 - [Dotenv](https://www.npmjs.com/package/dotenv)
 - [React-Vite](https://v3.vitejs.dev/guide/)
 - [React-Router-Dom-6](https://reactrouter.com/en/main/start/tutorial)
+- [Mongoose](https://mongoosejs.com/docs/index.html)
 
 ### How to make app deployment ready
 
@@ -71,6 +72,7 @@ MERN based kanban board with complete authentication. Backend-app in root folder
       ]
    }
    ```
+8. The final step is depoyment settings on vercel. Push all code on github. Import the repo on vercel by creating new project. Add the required ENVs. For the build command, use 'setup-production-app' which is actually the script to install all dependencies in express app and react app. The other cruciall step is Output Directory. This would be be client/dist. This is imperative to add otherwise it would server from the public folder where stale builds are present (the right term would be manual build which needs to copy-paste everytime the build is made). Doing this would server fresh build from dist folder which is always created when project is deployed.
 
 Hopefully, following these steps would successfully deploy a working MERN-App on vercel.
 
@@ -78,4 +80,3 @@ Hopefully, following these steps would successfully deploy a working MERN-App on
 
 - [Vercel.json issue at deployment](https://stackoverflow.com/questions/76835419/why-when-i-deploy-in-vercel-mern-app-shows-me-error-404): For vercel deployment, vercel.json is crucial for defining frontend paths and backend-express paths.
 - [React-Hook-Form](https://www.freecodecamp.org/news/how-to-build-forms-in-react/). More links: [Link1](https://blog.logrocket.com/react-hook-form-complete-guide/), [Link2](https://dev.to/franciscomendes10866/react-form-validation-with-react-hook-form-and-yup-4a98)
-
